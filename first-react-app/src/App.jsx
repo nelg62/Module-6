@@ -8,6 +8,8 @@ import Pet from "./components/Pet";
 import FullName from "./components/FullName";
 import ComplexComment from "./components/ComplexComment";
 import Comment from "./components/Comment";
+import Callout from "./components/FancyBox";
+import MoviesList from "./components/MoviesList";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -46,7 +48,8 @@ const comment = {
   author: {
     // author is also an object
     name: "Hello Kitty",
-    avatarUrl: "https://img.freepik.com/free-photo/colorful-design-with-spiral-design_188544-9588.jpg?t=st=1714545644~exp=1714549244~hmac=f7c750e949ed8190be8004ba4e6c9eababa719d88a094829b111d6faead2e8d6/64/64",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/colorful-design-with-spiral-design_188544-9588.jpg?t=st=1714545644~exp=1714549244~hmac=f7c750e949ed8190be8004ba4e6c9eababa719d88a094829b111d6faead2e8d6/64/64",
   },
 };
 
@@ -117,8 +120,16 @@ element */}
       <Pet type={"Dog"}></Pet>
       <FullName first="Kendrick" last="Lamar" />
       {/* render the component, passing object data as props */}
-      <ComplexComment {...comment}/>
+      <ComplexComment {...comment} />
       <Comment {...comment}></Comment>
+      {/* // render the Callout component with FullName as children */}
+      <Callout
+        title="Nested React Component"
+        message="Simple message with a fancy box applied via composition"
+      >
+        <FullName first="Elon" last="Musk" />
+      </Callout>
+      <MoviesList></MoviesList>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

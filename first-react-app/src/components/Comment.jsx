@@ -11,7 +11,7 @@ function Comment({author, text, date}) {
     {text}
     </div>
     <div className="Comment-date">
-    <FormattedDate></FormattedDate>
+    <FormattedDate date={date}></FormattedDate>
     </div>
     </div>
     );

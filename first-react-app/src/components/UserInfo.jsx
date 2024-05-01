@@ -1,4 +1,4 @@
-function UserInfo ({user}) {
+function UserInfo (user) {
 
 <div className="UserInfo">
         {" "}
