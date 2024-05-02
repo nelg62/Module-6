@@ -5,6 +5,7 @@ import "./App.css";
 import PropsDisplayer from "./components/PropsDisplayer";
 import City from "./components/City";
 import Pet from "./components/Pet";
+import Greeting from "./components/Greeting";
 import FullName from "./components/FullName";
 import ComplexComment from "./components/ComplexComment";
 import Comment from "./components/Comment";
@@ -118,6 +119,9 @@ element */}
         </div>
       </City>
       <Pet type={"Dog"}></Pet>
+      <Greeting name="Glen">
+        I can add stuff here
+      </Greeting>
       <FullName first="Kendrick" last="Lamar" />
       {/* render the component, passing object data as props */}
       <ComplexComment {...comment} />
