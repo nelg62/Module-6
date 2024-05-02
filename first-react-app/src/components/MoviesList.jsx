@@ -20,6 +20,7 @@ function MoviesList() {
         synopsis: "Explorers travel through a wormhole in space.",
         },
         ];
+        
         const movieItems = movies.map(movie => (
             <Movie
             key={movie.id} // key prop is required for lists
@@ -43,5 +44,11 @@ function MoviesList() {
             </>
             )
             }
+
+            return (
+                <div className="MoviesList">
+                <ul>{ movieItems }</ul>
+                </div>
+                )
     }
     export default MoviesList;

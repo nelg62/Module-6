@@ -77,3 +77,19 @@
     )
     fixed;
 }
+
+
+.catDiv {
+  display: inline-flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* .catList {
+ 
+} */
+
+.catImage {
+  height: 300px;
+  width: 300px;
+}
