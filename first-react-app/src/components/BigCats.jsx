@@ -1,3 +1,5 @@
+import SingleCats from "./SingleCats";
+
 function BigCats() {
   const cats = [
     {
@@ -53,18 +55,9 @@ function BigCats() {
 
   const catItems = cats.map((cat) => <SingleCats key={cat.id} {...cat} />);
 
-  function SingleCats({ name, latinName, image }) {
-    return (
-      <div className="catDiv">
-        <li className="catList">
-          <h3>{name}</h3> <p>{latinName}</p>
-          <img src={image} alt={`Picture of ${name}`} className="catImage" />
-        </li>
-      </div>
-    );
-  }
-
-  return catItems;
+  
+  return (
+    <>{catItems}</>);
 }
 
 export default BigCats;
