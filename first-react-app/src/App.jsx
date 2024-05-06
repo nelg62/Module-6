@@ -12,6 +12,7 @@ import Comment from "./components/Comment";
 import Callout from "./components/FancyBox";
 import MoviesList from "./components/MoviesList";
 import BigCats from "./components/BigCats";
+import MoodChanger from "./components/MoodChanger";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -136,6 +137,7 @@ element */}
       </Callout>
       <MoviesList></MoviesList>
       <BigCats></BigCats>
+      <MoodChanger></MoodChanger>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
