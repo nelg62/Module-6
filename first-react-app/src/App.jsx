@@ -13,6 +13,7 @@ import Callout from "./components/FancyBox";
 import MoviesList from "./components/MoviesList";
 import BigCats from "./components/BigCats";
 import MoodChanger from "./components/MoodChanger";
+import Emoji from "./components/Emoji";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -138,6 +139,7 @@ element */}
       <MoviesList></MoviesList>
       <BigCats></BigCats>
       <MoodChanger></MoodChanger>
+      <Emoji></Emoji>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
