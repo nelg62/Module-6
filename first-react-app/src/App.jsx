@@ -16,6 +16,7 @@ import MoodChanger from "./components/MoodChanger";
 import Emoji from "./components/Emoji";
 import BirthdayTranslator from "./components/BirthdayTranslator";
 import Weather from "./components/Weather";
+import LoginForm from "./components/LoginForm";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -142,7 +143,8 @@ element */}
       <Emoji></Emoji>
       <BirthdayTranslator></BirthdayTranslator>
       <Weather></Weather>
-      <div>
+      <LoginForm></LoginForm>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -161,7 +163,7 @@ element */}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddMovieForm from "./AddMovieForm";
 
 function MoviesList() {
   // collection of objects representing movies
@@ -53,6 +54,12 @@ function MoviesList() {
     setCurrentMovies(sortMovie);
   };
 
+  const handleAddMovie = (newMovie) => {
+    newMovie.id = currentMovies.length + 1; // unreliable but succinct
+    setCurrentMovies([...currentMovies, newMovie])
+    }
+
+
   // separate component for displaying each movie
   function Movie({ title, year, synopsis }) {
     return (
@@ -77,7 +84,7 @@ function MoviesList() {
       <button onClick={yearSortMovies}>Sort by Year</button>
       <button onClick={sortTitles}>Sort by Titles</button>
       <ul>{movieItems}</ul>
-
+      <AddMovieForm onAddMovie={handleAddMovie}/>
     </div>
   );
 }
