@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SingleCats from "./SingleCats";
 
 function BigCats() {
@@ -53,11 +54,70 @@ function BigCats() {
     },
   ];
 
-  const catItems = cats.map((cat) => <SingleCats key={cat.id} {...cat} />);
+  const [currentCats, setCurrentCats] = useState(cats);
+  const [sortOrder, setSortOrder] = useState("asc");
 
-  
+  const catItems = currentCats.map((cat) => (
+    <SingleCats key={cat.id} {...cat} />
+  ));
+
+  const sortCatsAsending = () => {
+    let newCats = [...currentCats];
+    newCats.sort((a, b) => a.name.localeCompare(b.name));
+    console.log(newCats);
+    setCurrentCats(newCats);
+  };
+
+  const sortCatsDecending = () => {
+    let newCats = [...currentCats];
+    newCats.sort((a, b) => b.name.localeCompare(a.name));
+    console.log(newCats);
+    setCurrentCats(newCats);
+  };
+
+  const sortCats = () => {
+    let newCats = [...currentCats];
+    newCats.sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    console.log(newCats);
+    setCurrentCats(newCats);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
+  function pantheraFilter(name) {
+    let newCats = [...currentCats];
+    console.log(name);
+    newCats = newCats.filter((cat) =>
+      cat.latinName.toLowerCase().includes(name.toLowerCase())
+    );
+    console.log(newCats);
+    setCurrentCats(newCats);
+  }
+
+  const ResetCats = () => {
+    setCurrentCats(cats);
+  };
+
   return (
-    <>{catItems}</>);
+    <>
+      <div>
+        <h3>Big Cats Sort</h3>
+        <button onClick={sortCatsAsending}>Sort List A-Z</button>
+        <button onClick={sortCatsDecending}>Sort List Z-A</button>
+        <button onClick={sortCats}>Sort List A-Z Z-A</button>
+        <button onClick={() => pantheraFilter("panthera")}>
+          Filter Show Panthera Cats
+        </button>
+        <button onClick={ResetCats}>Reset cats view</button>
+      </div>
+      {catItems}
+    </>
+  );
 }
 
 export default BigCats;

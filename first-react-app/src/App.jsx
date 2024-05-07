@@ -14,6 +14,8 @@ import MoviesList from "./components/MoviesList";
 import BigCats from "./components/BigCats";
 import MoodChanger from "./components/MoodChanger";
 import Emoji from "./components/Emoji";
+import BirthdayTranslator from "./components/BirthdayTranslator";
+import Weather from "./components/Weather";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -122,9 +124,7 @@ element */}
         </div>
       </City>
       <Pet type={"Dog"}></Pet>
-      <Greeting name="Glen">
-        I can add stuff here
-      </Greeting>
+      <Greeting name="Glen">I can add stuff here</Greeting>
       <FullName first="Kendrick" last="Lamar" />
       {/* render the component, passing object data as props */}
       <ComplexComment {...comment} />
@@ -140,6 +140,8 @@ element */}
       <BigCats></BigCats>
       <MoodChanger></MoodChanger>
       <Emoji></Emoji>
+      <BirthdayTranslator></BirthdayTranslator>
+      <Weather></Weather>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
