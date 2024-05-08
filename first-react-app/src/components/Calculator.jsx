@@ -1,77 +1,86 @@
-import { useState } from "react";
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  console.log(data);
-};
+import React, { useState } from "react";
 
 function Calculator() {
-  const [fnumber, setFNumber] = useState("");
-  const [MathValues, setMathValues] = useState("");
-  const [snumber, setSnumber] = useState("");
+  const [formData, setFormData] = useState({
+    fnumber: "",
+    MathValues: "+",
+    snumber: "",
+    calculatedValue: "",
+  });
 
-  switch (MathValues) {
-    case "+":
-      OutputText.innerHTML = Number(fnumber) + Number(snumber);
-      break;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { fnumber, MathValues, snumber } = formData;
+    let result = 0;
+    switch (MathValues) {
+      case "+":
+        result = Number(fnumber) + Number(snumber);
+        break;
+      case "-":
+        result = Number(fnumber) - Number(snumber);
+        break;
+      case "*":
+        result = Number(fnumber) * Number(snumber);
+        break;
+      case "/":
+        result = Number(fnumber) / Number(snumber);
+        break;
+      default:
+        break;
+    }
+    setFormData({ ...formData, calculatedValue: result });
+  };
 
-    case "-":
-      OutputText.innerHTML = Number(fnumber) + Number(snumber);
-      break;
-
-    case "*":
-      OutputText.innerHTML = Number(fnumber) + Number(snumber);
-      break;
-
-    case "/":
-      OutputText.innerHTML = Number(fnumber) + Number(snumber);
-      break;
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      {MathValues}
       <label htmlFor="fnumber">First Number:</label>
       <input
         type="number"
         id="fnumber"
         name="fnumber"
-        value={fnumber}
-        onChange={(e) => setFNumber(e.target.value)}
+        value={formData.fnumber}
+        onChange={handleChange}
         min="0"
         max="100"
       />
-
-      <select id="MathValues" onChange={(e) => setMathValues(e.target.value)}>
-        <option className="typebtn" name="+" value="+">
+      <select
+        id="MathValues"
+        name="MathValues"
+        value={formData.MathValues}
+        onChange={handleChange}
+      >
+        <option className="typebtn" value="+">
           +
         </option>
-        <option className="typebtn" name="-" value="-">
+        <option className="typebtn" value="-">
           -
         </option>
-        <option className="typebtn" name="*" value="*">
+        <option className="typebtn" value="*">
           *
         </option>
-        <option className="typebtn" name="/" value="/">
+        <option className="typebtn" value="/">
           /
         </option>
       </select>
-
-      <label htmlFor="snumber">Secound Number: </label>
+      <label htmlFor="snumber">Second Number:</label>
       <input
         type="number"
         id="snumber"
         name="snumber"
-        value={snumber}
-        onChange={(e) => setSnumber(e.target.value)}
+        value={formData.snumber}
+        onChange={handleChange}
         min="0"
         max="100"
       />
-
-      <button className="enter" value="=">
+      <button className="enter" type="submit">
         =
       </button>
+      <p>{formData.calculatedValue}</p>
     </form>
   );
 }
