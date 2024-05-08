@@ -17,6 +17,8 @@ import Emoji from "./components/Emoji";
 import BirthdayTranslator from "./components/BirthdayTranslator";
 import Weather from "./components/Weather";
 import LoginForm from "./components/LoginForm";
+import ExplodingBomb from "./components/ExplodingBomb";
+import Calculator from "./components/Calculator";
 
 // function Welcome(props) { // custom Welcome component
 //   return (
@@ -94,6 +96,7 @@ function App() {
 
   return (
     <>
+      <Calculator></Calculator>
       {spideyJSX}
       {spideyJSXFragment}
       {/* This renders the component, calling the function and
@@ -144,6 +147,7 @@ element */}
       <BirthdayTranslator></BirthdayTranslator>
       <Weather></Weather>
       <LoginForm></LoginForm>
+      <ExplodingBomb></ExplodingBomb>
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
