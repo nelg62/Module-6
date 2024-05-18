@@ -115,7 +115,7 @@ element */}
       <PropsDisplayer name="Harry Styles" age={29} />
       <PropsDisplayer pets={["cat", "dog", "goldfish"]} />
       <PropsDisplayer reactLogo={reactLogo} buttonCount={count} />
-      <City name="Sydney" />
+      <City name="Sydney">This is a city</City>
       <City name="Melbourne" state="VIC" />
       <City name="Chicago" state="Illinois" country="USA" />
       <City name="Newcastle">

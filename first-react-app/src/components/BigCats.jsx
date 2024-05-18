@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleCats from "./SingleCats";
 import AddCatForm from "./AddCatForm";
 
@@ -58,12 +58,20 @@ function BigCats() {
   const [currentCats, setCurrentCats] = useState(cats);
   const [sortOrder, setSortOrder] = useState("asc");
 
-  const handleDeleteCat = (id) => {
-    setCurrentCats(currentCats.filter((cat) => cat.id !== id))
-  }
+  let sortedCart = [...currentCats];
+  useEffect(() => {
+    let newCats = [...currentCats];
+    newCats.sort((a, b) => a.name.localeCompare(b.name));
 
-  const catItems = currentCats.map((cat) => (
-    <SingleCats key={cat.id} {...cat} onDelete={handleDeleteCat}/>
+    sortedCart = newCats;
+  }, [sortOrder]);
+
+  const handleDeleteCat = (id) => {
+    setCurrentCats(currentCats.filter((cat) => cat.id !== id));
+  };
+
+  const catItems = sortedCart.map((cat) => (
+    <SingleCats key={cat.id} {...cat} onDelete={handleDeleteCat} />
   ));
 
   const sortCatsAsending = () => {
@@ -112,7 +120,6 @@ function BigCats() {
     newCat.id = currentCats.length + 1; // unreliable but succinct
     setCurrentCats([...currentCats, newCat]);
   };
-
 
   return (
     <>
